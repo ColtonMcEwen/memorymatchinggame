@@ -1,0 +1,211 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Memory Game</title>
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the Memory Game!</h1>
+        </header>
+
+        <div id="quote-generator" class="box">
+            
+            <div id="yourname">
+                <h3>Name? <input type="text" id="name"></h3>
+            </div>    
+
+            <div>
+                <br>
+                <button id="login-register" onclick=startGame()>Login / Register</button>
+            </div>          
+
+            <div id="yourquote">
+                <h3>Quote? <input type="text" id="quote"></h3>
+            </div>
+
+            <div>
+                <br>
+                <button id="start-button">Create Quote</button>
+            </div>
+
+            <div id="moves">
+                <h3>Score: <span class="moves">0</span></h3>
+            </div>
+
+            <div>
+                <br>
+                <button id="restart" onclick=startGame()><i class="fa fa-repeat"></i></button>
+            </div>
+
+        </div>
+
+        <div id="signup-generator" class="box2">
+            
+            <div id="firstname-signup">
+                <h3>First Name: <input type="text" id="firstname" onkeyup="checkForm()"></h3>
+            </div>
+
+            <div id="username-signup">
+                <h3>Email: <input type="text" id="email-signup" onkeyup="checkForm()"></h3>
+            </div>
+
+            <div id="lastname-signup">
+                <h3>Last Name: <input type="text" id="lastname" onkeyup="checkForm()"></h3>
+            </div>
+
+            <div id="userpassword-signup">
+                <h3>Password: <input type="password" id="password-signup" onkeyup="checkForm()"></h3>
+            </div>
+
+            <div>
+                <br>
+                <button type="button" id="registerButton" onclick=startGame() disabled="disabled">Submit</button>
+            </div>
+        </div>
+
+        <div id="signin-generator" class="box3">
+            
+            <div id="username-signin">
+                <h3>Email: <input type="text" id="email-signin" onkeyup="checkForm2()"></h3>
+            </div>
+
+            <div>
+            </div>
+
+            <div id="userpassword-signin">
+                <h3>Password: <input type="password" id="password-signin" onkeyup="checkForm2()"></h3>
+            </div>
+
+            <div>
+            </div>
+
+            <div>
+                <br>
+                <button type="button" id="loginButton" onclick=startGame() disabled="disabled">Submit</button>
+            </div>
+        </div>
+        
+        <br>
+        <div id="phrases"> </div>
+
+        <ul class="deck" id="card-deck">
+            <li class="card match" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+            <li class="card match" type="diamond">
+                <i class="fa fa-diamond"></i>
+            </li>
+            <li class="card" type="plane">
+                <i class="fa fa-paper-plane-o"></i>
+            </li>
+            <li class="card" type="plane" >
+                <i class="fa fa-paper-plane-o"></i>
+            </li>
+            <li class="card" type="anchor">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="card open show" type="anchor">
+                <i class="fa fa-anchor"></i>
+            </li>
+            <li class="card" type="leaf">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="card" type="leaf">
+                <i class="fa fa-leaf"></i>
+            </li>
+            <li class="card" type="cloud">
+                <i class="fa fa-cloud"></i>
+            </li>
+            <li class="card" type="cloud">
+                <i class="fa fa-cloud"></i>
+            </li>
+            <li class="card" type="heart">
+                <i class="fa fa-heart"></i>
+            </li>
+            <li class="card" type="heart">
+                <i class="fa fa-heart"></i>
+            </li>
+        </ul>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id="list">
+        </div>
+
+        <div id="edit-quote">
+            <h4>Edit Quote: <input type="text" id="edit-input">
+            <button id="update" onclick="myFunction()"><i class="fa fa-check-square-o"></i></button>
+            </h4>
+        </div>
+
+        <div id="popup" class="winner">
+            <h1>Congratulations! You Finished!</h1>
+            <button id="playagain" onclick="playAgainClose()">
+                Play Again!
+            </button>
+            <button id="close" onclick="closeButton()"><i class="fa fa-close"></i></button>
+        </div>
+
+        <div id="popup2" class="login">
+            <h2>Login or Register to manage quotes and scores!</h2>
+            <button id="popupRegisterButton" onclick="signUp()">
+                Register
+            </button>
+            <button id="popupLoginButton" onclick="signIn()">
+                Login
+            </button>
+            <button id="close2" onclick="closeButton2()"><i class="fa fa-close"></i></button>
+        </div>
+
+        <div id="popup3" class="success-login">
+            <h1>Login Successful!</h1>
+            <button id="popupLoginPlayButton" onclick="play-login()">
+                Play!
+            </button>
+            <button id="close3" onclick="closeButton3()"><i class="fa fa-close"></i></button>
+        </div>
+
+        <div id="popup4" class="fail">
+            <h2>Your email or password was entered incorrectly.</h2>
+            <button id="tryAgainButton" onclick="tryagain()">
+                Try Again
+            </button>
+            <button id="close4" onclick="closeButton4()"><i class="fa fa-close"></i></button>
+        </div>
+
+        <div id="popup5" class="confused">
+            <h2>Something weird or unexpected happened 🧐😫😭</h2>
+            <button id="okayButton" onclick="confused()">
+                Okay
+            </button>
+            <button id="close5" onclick="closeButton5()"><i class="fa fa-close"></i></button>
+        </div>
+
+        <div id="popup6" class="success-register">
+            <h1>Registration Successful!</h1>
+            <button id="popupRegisterPlayButton" onclick="play-register()">
+                Play!
+            </button>
+            <button id="close6" onclick="closeButton6()"><i class="fa fa-close"></i></button>
+        </div>
+
+        <div id="popup7" class="user-already-used">
+            <h2>User record already exists.</h2>
+            <button id="popupUserAlreadyUsed" onclick="user-already-used()">
+                Try Again
+            </button>
+            <button id="close7" onclick="closeButton7()"><i class="fa fa-close"></i></button>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
