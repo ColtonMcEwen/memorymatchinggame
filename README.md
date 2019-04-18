@@ -1,5 +1,3 @@
-# s19-deploy-eyepod101
-
 # __Memory Game__
 
 
@@ -19,13 +17,13 @@
 ## Database Schema
 ```
 CREATE TABLE memorygame (
-id INTEGER PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 name TEXT,
 quote TEXT,
 score INTEGER);
 
 CREATE TABLE users (
-uid INTEGER PRIMARY KEY,
+uid SERIAL PRIMARY KEY,
 fname TEXT,
 lname TEXT,
 email TEXT,
