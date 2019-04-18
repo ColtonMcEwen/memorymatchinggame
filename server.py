@@ -160,7 +160,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         else:
             if bcrypt.verify(password, user["password"]):
                 # remember the user id in the session
-                self.session["userId"] = user["uid"]
+                self.session["userId"] = user["id"]
                 self.send_response(201)
                 self.end_headers()
             else:

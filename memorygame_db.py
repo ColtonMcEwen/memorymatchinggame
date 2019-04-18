@@ -62,7 +62,7 @@ class MemoryGameDB:
         return
 
     def createUserTable(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY, fname TEXT, lname TEXT, email TEXT, password TEXT)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, fname TEXT, lname TEXT, email TEXT, password TEXT)")
         self.connection.commit()
 
     def createUser(self, fname, lname, email, password):
