@@ -205,7 +205,7 @@ closeButton7.onclick = function() {
 // play button
 var playButton = document.querySelector("#start-button");
 playButton.onclick = function() {
-    fetch("http://localhost:8080/quotes", {
+    fetch("https://memorymatchinggame.herokuapp.com/quotes", {
       credentials: 'include',
     }).then(function (response) {
         if (response.status == 401) { // Not logged in
@@ -236,7 +236,7 @@ var createQuote = function() {
     var data = "name=" + encodeURIComponent(nameInput.value);
     data += "&quote=" + encodeURIComponent(quoteInput.value);
     data += "&score=" + encodeURIComponent(counter.innerHTML);
-    fetch("http://localhost:8080/quotes", {
+    fetch("https://memorymatchinggame.herokuapp.com/quotes", {
         method: 'POST',
         credentials: 'include',
         body: data,
@@ -255,7 +255,7 @@ var createQuote = function() {
 
 // delete a quote
 var deleteQuote = function (id) {
-    fetch(`http://localhost:8080/quotes/${id}`, {
+    fetch(`https://memorymatchinggame.herokuapp.com/quotes/${id}`, {
       credentials: 'include',
       method: 'DELETE',
     }).then(function (response) {
@@ -268,7 +268,7 @@ var deleteQuote = function (id) {
 // update a quote
 var updateQuote = function (id) {
     var data = "quote=" + encodeURIComponent(editInput.value);
-    fetch(`http://localhost:8080/quotes/${id}`, {
+    fetch(`https://memorymatchinggame.herokuapp.com/quotes/${id}`, {
       method: 'PUT',
       credentials: 'include',
       body: data,
@@ -285,7 +285,7 @@ var updateQuote = function (id) {
 
 // get a single quote
 var getQuote = function (id) {
-    fetch(`http://localhost:8080/quotes/${id}`, {
+    fetch(`https://memorymatchinggame.herokuapp.com/quotes/${id}`, {
       method: 'GET',
       credentials: 'include',
       headers: {
@@ -301,7 +301,7 @@ var getQuote = function (id) {
 
 // get multiple quotes
 var getQuotes = function () {
-    fetch("http://localhost:8080/quotes", {
+    fetch("https://memorymatchinggame.herokuapp.com/quotes", {
       credentials: 'include',
     }).then(function (response) {
         if (response.status == 401) { // Not logged in
@@ -367,7 +367,7 @@ var createUser = function() {
     data += "&email=" + encodeURIComponent(emailSignupInput.value);
     data += "&password=" + encodeURIComponent(passwordSignupInput.value);
 
-    fetch("http://localhost:8080/users", {
+    fetch("https://memorymatchinggame.herokuapp.com/users", {
         method: 'POST',
         credentials: 'include',
         body: data,
@@ -404,7 +404,7 @@ var loginUser = function () {
     var data = "email=" + encodeURIComponent(emailSigninInput.value);
     data += "&password=" + encodeURIComponent(passwordSigninInput.value);
 
-    fetch(`http://localhost:8080/sessions`, {
+    fetch(`https://memorymatchinggame.herokuapp.com/sessions`, {
       method: 'POST',
       credentials: 'include',
       body: data,
