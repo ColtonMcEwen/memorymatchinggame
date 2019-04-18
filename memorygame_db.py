@@ -31,7 +31,7 @@ class MemoryGameDB:
         self.connection.close()
 
     def createMemoryGameTable(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS memorygame (id INTEGER PRIMARY KEY, name TEXT, quote TEXT, score INTEGER)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS memorygame (id SERIAL PRIMARY KEY, name TEXT, quote TEXT, score INTEGER)")
         self.connection.commit()
 
     def createMemory(self, name, quote, score):
