@@ -1,5 +1,10 @@
 # __Memory Game__
 
+## Description
+A grid of cards is laid out in front of the individual faced-down. The goal is to flip exactly two cards over and check if they match. If they don't, flip both cards back facing down. Repeat this with any combination of cards until two cards match. From there, keep the matching cards faced up and repeat with other cards until eventually, all the cards have matched.
+
+The game keeps count of all attempts to match any two cards until all have matched. Once finished, the score is written to the database and is added to a list of other player scores!
+
 
 ## User Quotes
 + __Id__ - identification of the player
